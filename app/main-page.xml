@@ -1,0 +1,31 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar title="Lectura de Medidores" icon="" />
+    
+    <ScrollView>
+        <StackLayout class="p-4">
+            <!-- Formulario de lectura -->
+            <Label text="Dirección" class="text-lg font-bold mb-2" />
+            <TextField text="{{ address }}" hint="Ingrese la dirección" class="input mb-4 p-2 border rounded" />
+            
+            <Label text="Lectura Actual" class="text-lg font-bold mb-2" />
+            <TextField text="{{ currentReading }}" hint="Ingrese la lectura actual" keyboardType="number" class="input mb-4 p-2 border rounded" />
+            
+            <Label text="Lectura Anterior" class="text-lg font-bold mb-2" />
+            <TextField text="{{ previousReading }}" hint="Ingrese la lectura anterior" keyboardType="number" class="input mb-4 p-2 border rounded" />
+            
+            <Button text="Guardar Lectura" tap="{{ onSaveReading }}" class="-primary mb-4" />
+            
+            <!-- Lista de lecturas -->
+            <Label text="Lecturas Recientes" class="text-xl font-bold mt-4 mb-2" />
+            <ListView items="{{ readings }}" class="list-group" height="300">
+                <ListView.itemTemplate>
+                    <StackLayout class="list-group-item p-2">
+                        <Label text="{{ address }}" class="font-bold" />
+                        <Label text="{{ 'Consumo: ' + consumption }}" class="text-gray-600" />
+                        <Label text="{{ 'Fecha: ' + readingDate }}" class="text-sm text-gray-500" />
+                    </StackLayout>
+                </ListView.itemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</Page>
